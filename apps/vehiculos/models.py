@@ -20,7 +20,7 @@ class Vehiculo(models.Model):
     motor = models.CharField(max_length=10)
     #Existen varios tipos de relaciones uno a muchos (ForeignKey), muchos a muchos (ManyToManyField), uno a uno (OneToOneField)
     marca = models.ForeignKey(Marca, null=True, blank=True, on_delete=models.CASCADE)
-    tipovehiculo = models.ForeignKey(TipoVehiculo, null=True, blank=True, on_delete=models.CASCADE)
+    tipovehiculo = models.ForeignKey(TipoVehiculo, null=True, blank=True, on_delete=models.CASCADE, verbose_name="Tipo de Vehiculos")
 
     def __str__(self):
         return self.modelo

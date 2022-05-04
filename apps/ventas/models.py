@@ -5,9 +5,9 @@ from apps.vehiculos.models import Vehiculo
 
 class Venta(models.Model):
     fecha = models.DateField()
-    ValorTotal =models.BigIntegerField()
-    tipoPago =models.CharField(max_length=20)
-    user = models.ForeignKey(User, null=True, blank=True, on_delete=models.CASCADE)
+    ValorTotal =models.BigIntegerField(verbose_name="Valor Total")
+    tipoPago =models.CharField(max_length=20, verbose_name="Tipo de Pago")
+    user = models.ForeignKey(User, null=True, blank=True, on_delete=models.CASCADE, verbose_name="Usuario")
     vehiculo = models.ManyToManyField(Vehiculo, through='VehiculoVenta') #through indica el modelo de esa relacion, le puse el nombre de VehiculoVenta y debo crear esa clase
 
  

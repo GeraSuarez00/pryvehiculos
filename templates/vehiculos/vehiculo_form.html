@@ -1,0 +1,13 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+    <form method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+
+        <buttom class="btn btn-primary" type="submit">
+            Guardar Datos
+        </buttom>
+    </form>
+{% endblock  %}
+
