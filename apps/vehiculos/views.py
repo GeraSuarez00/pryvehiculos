@@ -20,4 +20,24 @@ def vehiculoCreate(request):
     else:
         form =VehiculoForm()
         return render(request,'vehiculos/vehiculo_form.html', {'form': form})
-        
+
+def vehiculoEdit(request, id_vehiculo):
+    vehiculo = Vehiculo.objects.get(pk=id_vehiculo)
+
+    if request.method == 'GET':
+        form = VehiculoForm(instance=vehiculo)
+    else:
+        form =VehiculoForm(request.POST, instance=vehiculo) 
+        if form.is_valid():
+            form.save()
+        return redirect('vehiculos:listVehiculos') #el enlace que puse en base.html cuando va a vehiculos
+
+    return render(request,'vehiculos/vehiculo_form.html', {'form': form})
+ 
+def vehiculoEliminar(request, id_vehiculo):
+    vehiculo = Vehiculo.objects.get(pk=id_vehiculo)
+
+    if request.method == 'POST':
+       vehiculo.delete()
+       return redirect('vehiculos:listVehiculos')
+    return render(request,'vehiculos/vehiculoEliminar.html', {'vehiculo': vehiculo})   
