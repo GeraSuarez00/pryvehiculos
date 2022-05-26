@@ -1,6 +1,5 @@
 from django.urls import path
-from apps.ventas.views import listVentas, ventaCreate, ventaEdit, ventaEliminar, listVehiculoVentas, vehiculoVentasCreate, vehiculoVentasEdit, vehiculoVentasEliminar, listUsuarios, usuariosCreate, usuariosEdit,usuariosEliminar
-
+from apps.ventas.views import *
 app_name='ventas' #este el nombre que puse en namespace del archivo urls.py de pryvehiculos
 urlpatterns = [
     path('', listVentas, name='listVentas'), # cuando digan vehiculo/ ejecuta el método listVehiculos
