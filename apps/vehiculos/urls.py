@@ -1,5 +1,5 @@
 from django.urls import path
-from apps.vehiculos.views import listVehiculos, vehiculoCreate, vehiculoEdit, vehiculoEliminar,  listMarcas, marcaCreate, marcaEdit, marcaEliminar, listTipoVehiculo,tipoVehiculosCreate, tipoVehiculosEdit,tipoVehiculosEliminar
+from apps.vehiculos.views import *
 
 app_name='vehiculos' #este el nombre que puse en namespace del archivo urls.py de pryvehiculos
 urlpatterns = [
