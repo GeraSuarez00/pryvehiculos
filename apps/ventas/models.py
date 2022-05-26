@@ -1,7 +1,6 @@
 from django.db import models
-# from django.contrib.auth.models import User
 from apps.vehiculos.models import Vehiculo
-# Create your models here.
+
 class Usuario(models.Model):
     nombres=models.CharField(verbose_name="Nombres", max_length=70)
     tipoIdentificacion=models.CharField(verbose_name="Tipo de Identificación", max_length=20)
@@ -14,8 +13,8 @@ class Usuario(models.Model):
 
 class Venta(models.Model):
     tipoPago_choices=(
-        ('efectivo','Efectivo'),
-        ('crédito','Crédito'),
+        ('Efectivo','Efectivo'),
+        ('Crédito','Crédito'),
     )
     fecha = models.DateField()
     ValorTotal =models.BigIntegerField(verbose_name="Valor Total")
