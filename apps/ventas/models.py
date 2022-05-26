@@ -23,7 +23,7 @@ class Venta(models.Model):
     vehiculo = models.ManyToManyField(Vehiculo, through='VehiculoVenta') #through indica el modelo de esa relacion, le puse el nombre de VehiculoVenta y debo crear esa clase
 
     def __str__(self):
-        return str (self.id)
+        return str(self.fecha)
     
 
 class VehiculoVenta(models.Model):

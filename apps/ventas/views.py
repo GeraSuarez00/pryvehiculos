@@ -3,6 +3,7 @@ from apps.ventas.models import Venta, VehiculoVenta, Usuario
 from apps.ventas.formVenta import VentaForm
 from apps.ventas.formVehiculoVenta import VehiculoVentaForm
 from apps.ventas.formUsuario import UsuarioForm
+from django.db.models import Sum
 
 def listVentas(request):
     ventas = Venta.objects.all().order_by('-id') 
@@ -73,8 +74,8 @@ def vehiculoVentasEdit(request, id_vehiculoVenta):
 
     return render(request,'vehiculoVentas/vehiculoVentas_form.html', {'form': form})
  
-def vehiculoVentasEliminar(request, id_venta):
-    vehiculoVentas = VehiculoVenta.objects.get(pk=id_venta)
+def vehiculoVentasEliminar(request, id_vehiculoVenta):
+    vehiculoVentas = VehiculoVenta.objects.get(pk=id_vehiculoVenta)
 
     if request.method == 'POST':
        vehiculoVentas.delete()
@@ -120,4 +121,16 @@ def usuariosEliminar(request, id_usuario):
        return redirect('ventas:listUsuarios')
     return render(request,'usuarios/usuarioEliminar.html', {'usuarios': usuario})
 
-   
+#--------------- Consultas -----------
+def consulta1(request):
+
+    fecha1 = request.POST.get('fecha1')
+    fecha2 = request.POST.get('fecha2')
+      
+    consulta1=Venta.objects.filter(fecha__range=[fecha1,fecha2]).aggregate(Sum('ValorTotal'))
+    
+    return render(request,'consultas/consulta1.html',{'consulta1':consulta1})
+    
+def consulta2(request):
+    pass
+  

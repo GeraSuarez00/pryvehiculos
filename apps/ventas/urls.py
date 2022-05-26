@@ -19,4 +19,6 @@ urlpatterns = [
     path('actualizar_u/<int:id_usuario>/', usuariosEdit, name='usuariosEdit'), 
     path('eliminar_u/<int:id_usuario>/', usuariosEliminar, name='usuariosEliminar'), 
    
+    #consultas
+    path('consulta1/', consulta1, name='consulta1'),
     ]

@@ -4,7 +4,7 @@
 
 <form method="post">
     {% csrf_token %}
-    <h4> ¿Desea eliminar el registro # {{vehiculoVenta.id}}?</h4>
+    <h4> ¿Desea eliminar el registro # {{vehiculoVentas.id}}?</h4>
     <button class="btn btn-danger" type="submit"> Si, eliminar</button>
     <a href="{% url 'ventas:listVehiculoVentas' %}" class="btn btn-primary">Cancelar</a>
 </form>
