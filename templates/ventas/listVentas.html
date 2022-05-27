@@ -23,7 +23,6 @@
         <th scope="col" class= "text-center">Valor Total</th>
         <th scope="col" class= "text-center">Tipo de Pago</th>
         <th scope="col" class= "text-center">Usuario</th>
-        <th scope="col" class= "text-center">Vehiculo</th>
         <th scope="col" class= "text-center">Acciones</th>
       </tr>
     </thead>
@@ -36,7 +35,6 @@
                 <td class= "text-center">{{ venta.ValorTotal}}</td>
                 <td class= "text-center">{{ venta.tipoPago}}</td>               
                 <td class= "text-center">{{ venta.user}}</td>                  
-                <td class= "text-center">{{ venta.vehiculo.all.0}}</td>                  
                 <td class="d-flex justify-content-center">
                 <a href="{% url 'ventas:ventaEdit' venta.id %}" class="btn btn-primary btn-xs">
                     <i class="fa-solid fa-pen"></i>

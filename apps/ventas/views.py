@@ -123,13 +123,18 @@ def usuariosEliminar(request, id_usuario):
 
 #--------------- Consultas -----------
 def consulta1(request):
-
     fecha1 = request.POST.get('fecha1')
     fecha2 = request.POST.get('fecha2')
-      
     consulta1=Venta.objects.filter(fecha__range=[fecha1,fecha2]).aggregate(Sum('ValorTotal'))
     
-    return render(request,'consultas/consulta1.html',{'consulta1':consulta1})
+    context = {
+        'fecha1': fecha1,
+        'fecha2': fecha2,
+        'consulta1': consulta1,
+    }
+    print(consulta1)
+    return render(request,'consultas/consulta1.html',{'context':context})
+          
     
 def consulta2(request):
     fecha1 = request.POST.get('fecha1')
