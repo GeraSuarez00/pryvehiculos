@@ -132,5 +132,24 @@ def consulta1(request):
     return render(request,'consultas/consulta1.html',{'consulta1':consulta1})
     
 def consulta2(request):
-    pass
+    fecha1 = request.POST.get('fecha1')
+    fecha2 = request.POST.get('fecha2')
   
+    consulta2=Venta.objects.values('fecha').filter(fecha__range=[fecha1,fecha2]).annotate(total=Sum('ValorTotal'))
+    
+    return render(request,'consultas/consulta2.html',{'consulta2':consulta2})
+
+def consulta3(request):
+    fecha1 = request.POST.get('fecha1')
+    fecha2 = request.POST.get('fecha2')
+  
+    consulta3=Venta.objects.values('tipoPago').filter(fecha__range=[fecha1,fecha2]).annotate(total=Sum('ValorTotal'))
+    
+    return render(request,'consultas/consulta3.html',{'consulta3':consulta3})
+
+def consulta4(request):
+    fecha1 = request.POST.get('fecha1')
+    fecha2 = request.POST.get('fecha2')
+  
+    consulta4=Venta.objects.values('user__nombres').filter(fecha__range=[fecha1,fecha2]).annotate(total=Sum('ValorTotal'))
+    return render(request,'consultas/consulta4.html',{'consulta4':consulta4})

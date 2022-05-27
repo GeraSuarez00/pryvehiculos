@@ -21,4 +21,7 @@ urlpatterns = [
    
     #consultas
     path('consulta1/', consulta1, name='consulta1'),
+    path('consulta2/', consulta2, name='consulta2'),
+    path('consulta3/', consulta3, name='consulta3'),
+    path('consulta4/', consulta4, name='consulta4'),
     ]
